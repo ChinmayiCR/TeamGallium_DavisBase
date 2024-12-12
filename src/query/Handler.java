@@ -8,7 +8,6 @@ import query.dml.Insert;
 import query.dml.Update;
 import query.model.parser.*;
 import query.model.result.Result;
-import query.vdl.DescTableQuery;
 import query.vdl.SelectCmd;
 import query.vdl.UseDatabaseQuery;
 
@@ -31,7 +30,6 @@ public class Handler {
     static final String CREATE_TABLE_COMMAND = "CREATE TABLE";
     static final String CREATE_DATABASE_COMMAND = "CREATE DATABASE";
     static final String USE_DATABASE_COMMAND = "USE";
-    static final String DESC_TABLE_COMMAND = "DESC";
     private static final String NO_DATABASE_SELECTED_MESSAGE = "No database selected";
     public static final String USE_HELP_MESSAGE = "\nType 'help;' to display supported commands.";
 
@@ -123,7 +121,6 @@ public class Handler {
         System.out.println("\tSHOW DATABASES;                                  Displays all databases.");
         System.out.println("\tDROP DATABASE database_name;                     Deletes a database.");
         System.out.println("\tSHOW TABLES;                                     Displays all tables in current database.");
-        System.out.println("\tDESC table_name;                                 Displays table schema.");
         System.out.println("\tCREATE TABLE table_name (                        Creates a table in current database.");
         System.out.println("\t\t<column_name> <datatype> [PRIMARY KEY | NOT NULL]");
         System.out.println("\t\t...);");
@@ -280,15 +277,6 @@ public class Handler {
 
     static QueryInterface CreateDatabaseQueryHandler(String databaseName) {
         return new CreateDatabaseQuery(databaseName);
-    }
-
-    static QueryInterface DescTableQueryHandler(String tableName) {
-        if(Handler.ActiveDatabaseName.equals("")){
-            System.out.println(Handler.NO_DATABASE_SELECTED_MESSAGE);
-            return null;
-        }
-
-        return new DescTableQuery(Handler.ActiveDatabaseName, tableName);
     }
 
     public static void ExecuteQuery(QueryInterface query) {

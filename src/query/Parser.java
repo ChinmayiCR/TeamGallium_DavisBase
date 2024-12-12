@@ -36,16 +36,6 @@ public class Parser {
             QueryInterface query = Handler.UseDatabaseQueryHandler(databaseName.trim());
             Handler.ExecuteQuery(query);
         }
-        else if(userCommand.toLowerCase().startsWith(Handler.DESC_TABLE_COMMAND.toLowerCase())){
-            if(!PartsEqual(userCommand, Handler.DESC_TABLE_COMMAND)) {
-                Handler.UnrecognisedCommand(userCommand, Handler.USE_HELP_MESSAGE);
-                return;
-            }
-
-            String tableName = userCommand.substring(Handler.DESC_TABLE_COMMAND.length());
-            QueryInterface query = Handler.DescTableQueryHandler(tableName.trim());
-            Handler.ExecuteQuery(query);
-        }
         else if(userCommand.toLowerCase().startsWith(Handler.DROP_TABLE_COMMAND.toLowerCase())){
             if(!PartsEqual(userCommand, Handler.DROP_TABLE_COMMAND)){
                 Handler.UnrecognisedCommand(userCommand, Handler.USE_HELP_MESSAGE);
