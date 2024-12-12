@@ -60,18 +60,18 @@ All commands below are case insensitive
 
 6. select * from davisbase_columns where table_name="davisbase_tables";
 
-7. create database sample;
+7. create database example;
 
 8. CREATE TABLE Employee (ssn INT PRIMARY KEY, fName TEXT NOT NULL, nName TEXT, address TEXT, DOB DATE NOT NULL,  DOB1 DATETIME, ti TINYINT, si SMALLINT, i INT, bi BIGINT, r REAL, d DOUBLE);
 
-9. insert into sample_table1 values (116 , 'r23aeqw', 'jtryrty', 'nmbn', '1989-11-12', '1989-11-12 12:12:12', 12, 256, 500, 50000, 45.56, 45.7989);
+9. insert into Employee values (116 , 'ccr241234', 'mxcjkdwhkj', 'uihjh', '1989-11-12', '1989-11-12 12:12:12', 12, 256, 500, 50000, 45.56, 45.7989);
 
-10. update sample_table1 set i=1000 where ssn=116;
+10. update Employee set i=1000 where ssn=116;
 
-11. delete from sample_table1;
+11. delete from Employee;
 
-12. drop table sample_table1;
+12. drop table Employee;
 
-13. drop database sample;
+13. drop database example;
 
 14. exit;
